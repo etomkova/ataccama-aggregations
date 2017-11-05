@@ -10,12 +10,17 @@ import com.github.tcechal.ataccama.Source;
 import com.github.tcechal.ataccama.TransformFn;
 
 
-public class MemoryDataSet<T> implements DataSet<T> {
+public final class MemoryDataSet<T> implements DataSet<T> {
 
     private final List<T> data = new ArrayList<>();
 
 
-    public MemoryDataSet(Source<T> source) {
+    public static <T> MemoryDataSet<T> create(Source<T> source) {
+
+        return new MemoryDataSet<>(source);
+    }
+
+    private MemoryDataSet(Source<T> source) {
 
         source.forEach(data::add);
     }
@@ -28,7 +33,7 @@ public class MemoryDataSet<T> implements DataSet<T> {
     @Override
     public <R> DataSet<R> transform(TransformFn<T, R> transformFn) {
 
-        return new MemoryDataSet<R>(this, transformFn);
+        return new MemoryDataSet<>(this, transformFn);
     }
 
     @Override
