@@ -1,6 +1,8 @@
 package com.github.tcechal.ataccama.aggregations;
 
+import com.github.tcechal.ataccama.sources.Source;
+
 public interface Aggregator<T, R> {
 
-    R aggregate(T[] input);
+    R aggregate(Source<T> input);
 }
