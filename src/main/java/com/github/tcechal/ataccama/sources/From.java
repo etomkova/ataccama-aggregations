@@ -1,8 +1,9 @@
-package com.github.tcechal.ataccama;
+package com.github.tcechal.ataccama.sources;
 
 import java.util.Arrays;
 import java.util.Collection;
 
+import com.github.tcechal.ataccama.Source;
 import com.github.tcechal.ataccama.sources.CollectionSource;
 
 

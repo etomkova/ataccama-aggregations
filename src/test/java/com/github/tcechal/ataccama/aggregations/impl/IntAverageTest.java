@@ -1,9 +1,8 @@
 package com.github.tcechal.ataccama.aggregations.impl;
 
 import com.github.tcechal.ataccama.AggregateFn;
-import com.github.tcechal.ataccama.aggregations.IntAverage;
 import com.github.tcechal.ataccama.Source;
-import com.github.tcechal.ataccama.From;
+import com.github.tcechal.ataccama.sources.From;
 import org.junit.Assert;
 import org.junit.Test;
 

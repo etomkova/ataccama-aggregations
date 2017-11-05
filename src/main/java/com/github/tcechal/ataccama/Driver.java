@@ -1,8 +1,8 @@
 package com.github.tcechal.ataccama;
 
-import com.github.tcechal.ataccama.aggregations.IntAverage;
 import com.github.tcechal.ataccama.dataset.MemoryDataSet;
-import com.github.tcechal.ataccama.transformations.PositiveInts;
+import com.github.tcechal.ataccama.lib.Ints;
+import com.github.tcechal.ataccama.sources.From;
 
 
 public class Driver {
@@ -13,8 +13,8 @@ public class Driver {
 
         Double result = MemoryDataSet
                 .create(From.array(numbers))
-                .transform(new PositiveInts())
-                .aggregate(new IntAverage());
+                .transform(Ints.abs())
+                .aggregate(Ints.mean());
 
         System.out.println(result);
     }
