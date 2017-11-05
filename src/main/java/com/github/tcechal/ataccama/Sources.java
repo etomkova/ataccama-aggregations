@@ -1,9 +1,10 @@
-package com.github.tcechal.ataccama.sources;
+package com.github.tcechal.ataccama;
 
 import java.util.Arrays;
 import java.util.Collection;
 
-import com.github.tcechal.ataccama.sources.impl.CollectionSource;
+import com.github.tcechal.ataccama.Source;
+import com.github.tcechal.ataccama.sources.CollectionSource;
 
 
 public class Sources {

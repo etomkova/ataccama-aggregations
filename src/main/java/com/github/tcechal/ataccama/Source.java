@@ -1,3 +1,3 @@
-package com.github.tcechal.ataccama.sources;
+package com.github.tcechal.ataccama;
 
 public interface Source<T> extends Iterable<T> {}

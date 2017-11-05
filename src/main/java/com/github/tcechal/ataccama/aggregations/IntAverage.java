@@ -1,10 +1,10 @@
-package com.github.tcechal.ataccama.aggregations.impl;
+package com.github.tcechal.ataccama.aggregations;
 
-import com.github.tcechal.ataccama.aggregations.Aggregator;
-import com.github.tcechal.ataccama.sources.Source;
+import com.github.tcechal.ataccama.AggregateFn;
+import com.github.tcechal.ataccama.Source;
 
 
-public class IntAverage implements Aggregator<Integer, Double> {
+public class IntAverage implements AggregateFn<Integer, Double> {
 
     public Double aggregate(Source<Integer> numbers) {
 

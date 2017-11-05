@@ -1,9 +1,9 @@
-package com.github.tcechal.ataccama.sources.impl;
+package com.github.tcechal.ataccama.sources;
 
 import java.util.Collection;
 import java.util.Iterator;
 
-import com.github.tcechal.ataccama.sources.Source;
+import com.github.tcechal.ataccama.Source;
 
 
 public class CollectionSource<T> implements Source<T> {
