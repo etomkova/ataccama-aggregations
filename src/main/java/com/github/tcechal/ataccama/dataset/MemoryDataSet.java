@@ -3,11 +3,11 @@ package com.github.tcechal.ataccama.dataset;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.function.Function;
 
 import com.github.tcechal.ataccama.AggregateFn;
 import com.github.tcechal.ataccama.DataSet;
 import com.github.tcechal.ataccama.Source;
+import com.github.tcechal.ataccama.TransformFn;
 
 
 public class MemoryDataSet<T> implements DataSet<T> {
@@ -20,15 +20,15 @@ public class MemoryDataSet<T> implements DataSet<T> {
         source.forEach(data::add);
     }
 
-    private <R> MemoryDataSet(Source<R> source, Function<R, T> transformFn) {
+    private <R> MemoryDataSet(Source<R> source, TransformFn<R, T> transformFn) {
 
-        source.forEach(r -> data.add(transformFn.apply(r)));
+        source.forEach(r -> data.add(transformFn.transform(r)));
     }
 
     @Override
-    public <R> DataSet<R> transform(Function<T, R> transformFn) {
+    public <R> DataSet<R> transform(TransformFn<T, R> transformFn) {
 
-        return new MemoryDataSet<>(this, transformFn);
+        return new MemoryDataSet<R>(this, transformFn);
     }
 
     @Override
