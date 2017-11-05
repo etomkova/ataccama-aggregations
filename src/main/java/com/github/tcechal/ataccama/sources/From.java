@@ -1,21 +1,17 @@
 package com.github.tcechal.ataccama.sources;
 
 import java.util.Arrays;
-import java.util.Collection;
-
-import com.github.tcechal.ataccama.Source;
-import com.github.tcechal.ataccama.sources.CollectionSource;
 
 
 public final class From {
 
-    public static <T> Source<T> array(T[] items) {
+    public static <T> Iterable<T> array(T[] items) {
 
-        return new CollectionSource<>(Arrays.asList(items));
+        return Arrays.asList(items);
     }
 
-    public static <T> Source<T> collection(Collection<T> items) {
+    public static <T> Iterable<T> iterable(Iterable<T> items) {
 
-        return new CollectionSource<>(items);
+        return items;
     }
 }

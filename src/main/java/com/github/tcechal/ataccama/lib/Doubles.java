@@ -1,7 +1,6 @@
 package com.github.tcechal.ataccama.lib;
 
 import com.github.tcechal.ataccama.AggregateFn;
-import com.github.tcechal.ataccama.Source;
 
 
 public class Doubles {
@@ -22,7 +21,7 @@ public class Doubles {
     private static class Max implements AggregateFn<Double, Double> {
 
         @Override
-        public Double aggregate(Source<Double> items) {
+        public Double aggregate(Iterable<Double> items) {
 
             Double max = null;
             for (Double item: items) {
@@ -44,7 +43,7 @@ public class Doubles {
     private static class Mean implements AggregateFn<Double, Double> {
 
         @Override
-        public Double aggregate(Source<Double> items) {
+        public Double aggregate(Iterable<Double> items) {
 
             int count = 0;
             double sum = 0.0;
@@ -61,7 +60,7 @@ public class Doubles {
     private static class Sum implements AggregateFn<Double, Double> {
 
         @Override
-        public Double aggregate(Source<Double> items) {
+        public Double aggregate(Iterable<Double> items) {
 
             double sum = 0.0;
 

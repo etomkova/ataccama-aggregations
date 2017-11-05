@@ -1,7 +1,6 @@
 package com.github.tcechal.ataccama.lib;
 
 import com.github.tcechal.ataccama.AggregateFn;
-import com.github.tcechal.ataccama.Source;
 import com.github.tcechal.ataccama.TransformFn;
 
 
@@ -36,7 +35,7 @@ public class Ints {
     private static class Max implements AggregateFn<Integer, Integer> {
 
         @Override
-        public Integer aggregate(Source<Integer> items) {
+        public Integer aggregate(Iterable<Integer> items) {
 
             Integer max = null;
             for (Integer item: items) {
@@ -58,7 +57,7 @@ public class Ints {
     private static class Mean implements AggregateFn<Integer, Double> {
 
         @Override
-        public Double aggregate(Source<Integer> items) {
+        public Double aggregate(Iterable<Integer> items) {
 
             int count = 0;
             int sum = 0;
@@ -75,7 +74,7 @@ public class Ints {
     private static class Sum implements AggregateFn<Integer, Integer> {
 
         @Override
-        public Integer aggregate(Source<Integer> items) {
+        public Integer aggregate(Iterable<Integer> items) {
 
             int sum = 0;
 
