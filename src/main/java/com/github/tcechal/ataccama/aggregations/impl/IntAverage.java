@@ -1,10 +1,10 @@
 package com.github.tcechal.ataccama.aggregations.impl;
 
-import com.github.tcechal.ataccama.aggregations.IntAggregator;
+import com.github.tcechal.ataccama.aggregations.Aggregator;
 
-public class IntAverage implements IntAggregator {
+public class IntAverage implements Aggregator<Integer, Double> {
 
-    public double aggregate(int[] numbers) {
+    public Double aggregate(Integer[] numbers) {
 
         int count = 0;
         long sum = 0L;

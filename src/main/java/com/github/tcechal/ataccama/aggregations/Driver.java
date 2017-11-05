@@ -6,9 +6,9 @@ public class Driver {
 
     public static void main(String[] args) {
 
-        int[] numbers = {1, 2, 3, 4, 5};
+        Integer[] numbers = {1, 2, 3, 4, 5};
 
-        IntAggregator aggregator = new IntAverage();
+        Aggregator<Integer, Double> aggregator = new IntAverage();
 
         System.out.println(aggregator.aggregate(numbers));
     }
