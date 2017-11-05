@@ -2,7 +2,7 @@ package com.github.tcechal.ataccama.aggregations;
 
 public class IntAverage {
 
-    public static void calculate(int[] numbers) {
+    public static double calculate(int[] numbers) {
 
         int count = 0;
         long sum = 0L;
@@ -12,6 +12,6 @@ public class IntAverage {
             sum += number;
         }
 
-        System.out.println(sum / (double) count);
+        return sum / (double) count;
     }
 }
