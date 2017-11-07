@@ -8,6 +8,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
 import java.util.List;
 
+import com.github.tcechal.ataccama.dataset.LazyDataSet;
 import com.github.tcechal.ataccama.dataset.MemoryDataSet;
 import com.github.tcechal.ataccama.lib.Doubles;
 import com.github.tcechal.ataccama.lib.Ints;
@@ -18,7 +19,7 @@ public class Driver {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.println(MemoryDataSet
+        System.out.println(LazyDataSet
                 .create(From.array(new Integer[] {-2, -1, 0, 0, 1, 2}))
                 .transform(Math::abs)
                 .aggregate(Ints::mean));

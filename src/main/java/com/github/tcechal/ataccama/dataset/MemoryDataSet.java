@@ -14,7 +14,7 @@ public final class MemoryDataSet<T> implements DataSet<T> {
     private final List<T> data = new ArrayList<>();
 
 
-    public static <T> MemoryDataSet<T> create(Iterable<T> source) {
+    public static <T> DataSet<T> create(Iterable<T> source) {
 
         return new MemoryDataSet<>(source);
     }
