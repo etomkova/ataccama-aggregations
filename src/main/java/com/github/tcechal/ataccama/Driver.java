@@ -8,11 +8,11 @@ import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
 import java.util.List;
 
-import com.github.tcechal.ataccama.dataset.LazyDataSet;
-import com.github.tcechal.ataccama.dataset.MemoryDataSet;
-import com.github.tcechal.ataccama.lib.Doubles;
-import com.github.tcechal.ataccama.lib.Ints;
-import com.github.tcechal.ataccama.sources.From;
+import com.github.tcechal.ataccama.aggregations.dataset.LazyDataSet;
+import com.github.tcechal.ataccama.aggregations.dataset.MemoryDataSet;
+import com.github.tcechal.ataccama.aggregations.lib.Doubles;
+import com.github.tcechal.ataccama.aggregations.lib.Ints;
+import com.github.tcechal.ataccama.aggregations.source.From;
 
 
 public class Driver {

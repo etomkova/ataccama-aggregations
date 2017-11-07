@@ -1,4 +1,4 @@
-package com.github.tcechal.ataccama.sources;
+package com.github.tcechal.ataccama.aggregations.source;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package com.github.tcechal.ataccama;
+package com.github.tcechal.ataccama.aggregations;
 
 
 /**

@@ -1,12 +1,12 @@
-package com.github.tcechal.ataccama.dataset;
+package com.github.tcechal.ataccama.aggregations.dataset;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.github.tcechal.ataccama.AggregateFn;
-import com.github.tcechal.ataccama.DataSet;
-import com.github.tcechal.ataccama.TransformFn;
+import com.github.tcechal.ataccama.aggregations.AggregateFn;
+import com.github.tcechal.ataccama.aggregations.DataSet;
+import com.github.tcechal.ataccama.aggregations.TransformFn;
 
 
 public final class MemoryDataSet<T> implements DataSet<T> {

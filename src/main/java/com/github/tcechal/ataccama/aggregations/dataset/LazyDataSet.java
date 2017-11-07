@@ -1,10 +1,10 @@
-package com.github.tcechal.ataccama.dataset;
+package com.github.tcechal.ataccama.aggregations.dataset;
 
 import java.util.Iterator;
 
-import com.github.tcechal.ataccama.AggregateFn;
-import com.github.tcechal.ataccama.DataSet;
-import com.github.tcechal.ataccama.TransformFn;
+import com.github.tcechal.ataccama.aggregations.AggregateFn;
+import com.github.tcechal.ataccama.aggregations.DataSet;
+import com.github.tcechal.ataccama.aggregations.TransformFn;
 
 
 public final class LazyDataSet<T, R> implements DataSet<T> {

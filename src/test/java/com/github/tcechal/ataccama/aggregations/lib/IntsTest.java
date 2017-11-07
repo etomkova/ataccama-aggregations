@@ -1,4 +1,4 @@
-package com.github.tcechal.ataccama.lib;
+package com.github.tcechal.ataccama.aggregations.lib;
 
 import java.util.Arrays;
 import java.util.List;
