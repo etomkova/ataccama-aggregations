@@ -10,6 +10,8 @@ public final class Doubles {
 
     /**
      * Calculate maximum of given items.
+     *
+     * Returns null for empty input iterable.
      */
     public static Double max(Iterable<Double> items) {
 
@@ -33,7 +35,8 @@ public final class Doubles {
      * Calculate mean of given items.
      *
      * A simple implementation that does not consider overflows, rounding
-     * errors or special values such as Inf or NaN.
+     * errors or special values such as Inf or NaN. Returns null for empty
+     * input iterable.
      */
     public static Double mean(Iterable<Double> items) {
 
@@ -45,14 +48,19 @@ public final class Doubles {
             sum += item;
         }
 
-        return sum / count;
+        if (count == 0) {
+            return null;
+        } else {
+            return sum / count;
+        }
     }
 
     /**
      * Calculate sum of given items.
      *
      * A simple implementation that does not consider overflows, rounding
-     * errors or special values such as Inf or NaN.
+     * errors or special values such as Inf or NaN. Returns 0.0 for empty
+     * input iterable.
      */
     public static Double sum(Iterable<Double> items) {
 

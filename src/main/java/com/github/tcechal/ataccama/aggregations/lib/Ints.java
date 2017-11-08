@@ -10,6 +10,8 @@ public final class Ints {
 
     /**
      * Calculate maximum of given items.
+     *
+     * Returns null for empty input iterable.
      */
     public static Integer max(Iterable<Integer> items) {
 
@@ -33,6 +35,7 @@ public final class Ints {
      * Calculate mean of given items.
      *
      * A simple implementation that does not consider overflows.
+     * Returns null for empty input iterable.
      */
     public static Double mean(Iterable<Integer> items) {
 
@@ -44,13 +47,18 @@ public final class Ints {
             sum += item;
         }
 
-        return sum / (double) count;
+        if (count == 0) {
+            return null;
+        } else {
+            return sum / (double) count;
+        }
     }
 
     /**
      * Calculate sum of given items.
      *
      * A simple implementation that does not consider overflows.
+     * Returns 0 for empty input iterable.
      */
     public static Integer sum(Iterable<Integer> items) {
 
