@@ -8,9 +8,13 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 
-public class FileSource implements Iterable<String> {
+/**
+ * Wraps a text file into an iterable of its lines.
+ */
+class TextFileLines implements Iterable<String> {
 
-    private static class LineIterator implements Iterator<String> {
+    // Custom iterator returning individual lines of the underlying textFile.
+    private static final class LineIterator implements Iterator<String> {
 
         private BufferedReader reader;
         private String nextLine;
@@ -20,22 +24,34 @@ public class FileSource implements Iterable<String> {
 
             try {
                 reader = new BufferedReader(new FileReader(path));
-            } catch (FileNotFoundException e) {
+            } catch (FileNotFoundException e) {  // No checked exceptions allowed by Iterable interface.
                 throw new IllegalStateException(e);
             }
 
-            readNext();
+            readNextLine();
         }
 
-        private void readNext() {
+        private void readNextLine() {
+
+            // EOF reached, nothing to read.
+            if (reader == null) {
+                return;
+            }
+
             try {
                 nextLine = reader.readLine();
-            } catch (IOException e) {
+            } catch (IOException e) {  // No checked exceptions allowed by Iterable interface.
+                close();
                 throw new IllegalStateException(e);
+            }
+
+            // EOF reached, close the underlying textFile.
+            if (nextLine == null) {
+                close();
             }
         }
 
-        private void dispose() {
+        private void close() {
 
             if (reader == null) {
                 return;
@@ -43,38 +59,29 @@ public class FileSource implements Iterable<String> {
 
             try {
                 reader.close();
-                reader = null;
-            } catch (IOException e) {
+            } catch (IOException e) {  // No checked exceptions allowed by Iterable interface.
                 throw new IllegalStateException(e);
+            } finally {
+                reader = null;
             }
         }
 
         @Override
         public boolean hasNext() {
 
-            if (nextLine == null) {
-                dispose();
-                return false;
-            } else {
-                return true;
-            }
+            return nextLine != null;
         }
 
         @Override
         public String next() {
 
             if (hasNext()) {
-                String line = nextLine;
-                readNext();
-                return line;
+                String currentLine = nextLine;
+                readNextLine();
+                return currentLine;
             } else {
                 throw new NoSuchElementException();
             }
-        }
-
-        @Override
-        public void remove() {
-            throw new UnsupportedOperationException();
         }
     }
 
@@ -82,7 +89,7 @@ public class FileSource implements Iterable<String> {
     private final String path;
 
 
-    public FileSource(String path) {
+    TextFileLines(String path) {
 
         this.path = path;
     }

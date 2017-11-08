@@ -30,7 +30,7 @@ public class Driver {
                 .aggregate(Doubles::sum));
 
         System.out.println(MemoryDataSet
-                .create(From.file(createTempFile()))
+                .create(From.textFile(createTempFile()))
                 .transform(Integer::parseInt)
                 .aggregate(Ints::max));
     }
