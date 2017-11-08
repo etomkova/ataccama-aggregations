@@ -9,19 +9,24 @@ import com.github.tcechal.ataccama.aggregations.DataSet;
 import com.github.tcechal.ataccama.aggregations.TransformFn;
 
 
+/**
+ * A DataSet that is completely held in memory.
+ *
+ * All operations (both transformations and aggregations) are performed immediatelly.
+ */
 public final class MemoryDataSet<T> implements DataSet<T> {
 
     private final List<T> data = new ArrayList<>();
 
 
+    /**
+     * Creates a new DataSet from given source iterable.
+     * @param source An iterable capable of producing data items.
+     * @return New DataSet containing data from the source.
+     */
     public static <T> DataSet<T> create(Iterable<T> source) {
 
-        return new MemoryDataSet<>(source);
-    }
-
-    private MemoryDataSet(Iterable<T> source) {
-
-        source.forEach(data::add);
+        return new MemoryDataSet<>(source, x -> x);
     }
 
     private <R> MemoryDataSet(Iterable<R> source, TransformFn<R, T> transformFn) {
