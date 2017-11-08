@@ -1,6 +1,10 @@
 package com.github.tcechal.ataccama.aggregations;
 
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 /**
  * Represents a collection of data items.
  *
@@ -29,4 +33,31 @@ public interface DataSet<T> extends Iterable<T> {
      * @return Result of the aggregation.
      */
     <R> R aggregate(AggregateFn<T, R> aggregateFn);
+
+    /**
+     * Return a list containing all items in this DataSet.
+     */
+    default List<T> collect() {
+
+        List<T> collected = new ArrayList<>();
+        iterator().forEachRemaining(collected::add);
+
+        return collected;
+    }
+
+    /**
+     * Return the total number of items in this DataSet.
+     */
+    default Integer count() {
+
+        Iterator<T> it = iterator();
+
+        Integer cnt = 0;
+        while (it.hasNext()) {
+            it.next();
+            cnt++;
+        }
+
+        return cnt;
+    }
 }
