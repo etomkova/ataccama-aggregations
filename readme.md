@@ -76,10 +76,10 @@ Integer[] ints = {1, 2, 3};
 DataSet<Integer> ds = MemoryDataSet.create(From.array(ints));
 
 // collect() materializes the items contained in the data set into a list
-System.out.println(ints.collect()) // prints [1, 2, 3]
+System.out.println(ds.collect()) // prints [1, 2, 3]
 
 // count() returns the total number of items in the data set
-System.out.println(ints.count()) // prints 3
+System.out.println(ds.count()) // prints 3
 ```
 - transformations return a DataSet, so they can be chained; the chain ends with an aggregation
 ```java
