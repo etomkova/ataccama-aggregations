@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
  */
 class TextFileLines implements Iterable<String> {
 
-    // Custom iterator returning individual lines of the underlying textFile.
+    // Custom iterator returning individual lines of the underlying text file.
     private static final class LineIterator implements Iterator<String> {
 
         private BufferedReader reader;
