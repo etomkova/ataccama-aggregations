@@ -1,0 +1,13 @@
+workspace:
+  base: /build
+  path: src/github.com/tcechal/ataccama-aggregations
+
+pipeline:
+  build:
+    image: "java:8"
+    commands:
+      - ./gradlew build
+  test:
+    image: "java:8"
+    commands:
+      - ./gradlew test
